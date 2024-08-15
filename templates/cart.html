@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Cart{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="mb-4">Cart</h1>
+    {% if items %}
+        <ul class="list-group mb-4">
+            {% for item in items %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    {{ item.name }} - ${{ item.price / 100 }} x {{ item.quantity }}
+                </div>
+                <span class="badge bg-primary rounded-pill">${{ (item.price * item.quantity) / 100 }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="d-flex justify-content-between mb-4">
+            <a class="btn btn-secondary flex-grow-1 me-2" href="/empty-cart">Empty Cart</a>
+            <button id="checkout-button" class="btn btn-primary flex-grow-1">Checkout</button>
+        </div>
+    {% else %}
+        <p>Your cart is empty.</p>
+        <a class="btn btn-primary" href="{{ url_for('products') }}">Continue Shopping</a>
+    {% endif %}
+</div>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+    var stripe = Stripe('pk_test_51Pfqms2KxvzBrUVsfDUyiN4RAbZ56LHyh69wSeYbHkOrFw7IqKoh592dNDhN6FflddBvaQPrzWnDmhGCxkKow6S100WCvAxMxS');
+    var checkoutButton = document.getElementById('checkout-button');
+
+    if (checkoutButton) {
+        checkoutButton.addEventListener('click', function () {
+            fetch('/create-checkout-session', { 
+                method: 'POST',
+            })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (session) {
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(function (result) {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+        });
+    }
+</script>
+
+{% endblock %}

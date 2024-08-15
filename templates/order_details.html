@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Order Details{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="mb-4">Order ID: {{ order_id }}</h1>
+    <ul class="list-group mb-3">
+        {% for product in products %}
+        <li class="list-group-item">
+            {{ product.name }} - ${{ product.price / 100 }}
+        </li>
+        {% endfor %}
+    </ul>
+    <h4 class="text-end">Total: ${{ total / 100 }}</h4>
+</div>
+{% endblock %}

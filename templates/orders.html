@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="mb-4">My Orders</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>View Products</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>${{ order.total / 100 }}</td>
+                <td>{{ order.status }}</td>
+                <td>
+                    <a href="{{ url_for('order_details', order_id=order.id) }}" class="btn btn-info">View Products</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
