@@ -23,7 +23,3 @@ An online floral store application built with Flask and PostgreSQL, featuring pr
 
 - **Users**: Register, log in, browse products, add items to the cart, and complete purchases.
 - **Admins**: Manage products and orders through the admin dashboard.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
