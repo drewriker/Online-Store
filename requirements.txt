@@ -1,11 +1,14 @@
 bcrypt==4.2.0
 blinker==1.8.2
+certifi==2024.7.4
+charset-normalizer==3.3.2
 click==8.0.1
 dnspython==2.6.1
 email_validator==2.2.0
 Flask==2.0.1
 Flask-Bcrypt==1.0.1
 Flask-DebugToolbar==0.11.0
+Flask-Login==0.6.3
 Flask-SQLAlchemy==2.5.1
 Flask-WTF==1.2.1
 greenlet==1.1.0
@@ -14,6 +17,10 @@ itsdangerous==2.0.1
 Jinja2==3.0.1
 MarkupSafe==2.0.1
 psycopg2-binary==2.9.3
+requests==2.32.3
 SQLAlchemy==1.4.18
+stripe==10.6.0
+typing_extensions==4.12.2
+urllib3==2.2.2
 Werkzeug==2.0.1
 WTForms==3.1.2
