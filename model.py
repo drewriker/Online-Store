@@ -86,7 +86,7 @@ class OrderItem(db.Model):
     quantity = db.Column(db.Integer, nullable=False)
 
 def connect_to_db(app):
-    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://drewriker@localhost:5433/floral-store"
+    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://username@localhost:5433/floral-store"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
