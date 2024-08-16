@@ -13,6 +13,7 @@ os.system("createdb -p 5433 floral-store")
 # Connect to the database
 connect_to_db(app)
 
+### test data
 def seed_data():
     with app.app_context():
         # Drop all tables

@@ -27,19 +27,6 @@ class User(db.Model, UserMixin):
         self.last_name = last_name
         self.is_admin = is_admin
     
-    # #Flask-Login methods
-    # def is_active(self):
-    #     return True  # Assuming all users are active
-
-    # def is_authenticated(self):
-    #     return True  # Assuming all logged-in users are authenticated
-
-    # def is_anonymous(self):
-    #     return False  # Assuming no anonymous users
-
-    # def get_id(self):
-    #     return str(self.id)
-    
 
 class Product(db.Model):
     """Products"""
