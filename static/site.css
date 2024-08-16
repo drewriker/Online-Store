@@ -45,10 +45,10 @@
 /* Footer */
 footer {
     background-color: #f8f9fa;
-    margin-top: auto;
+    /* margin-top: auto;
     width: 100%;
     position: fixed;
-    bottom: 0;
+    bottom: 0; */
 }
 
 footer p {
